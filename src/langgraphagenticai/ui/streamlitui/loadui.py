@@ -28,6 +28,11 @@ class LoadStreamlitUI:
                     
             self.user_controls['selected_usecase'] = st.selectbox('Select Usecase', usecase_options)
             
+            if self.user_controls['selected_usecase'] == 'Chatbot with Web':
+                self.user_controls['WEB_SEARCH_API_KEY'] = st.session_state['WEB_SEARCH_API_KEY'] = st.text_input('Web Search API Key', type='password')
+                if not self.user_controls['WEB_SEARCH_API_KEY']:
+                    st.warning("Please enter your Web Search API Key.")
+                    
         return self.user_controls
     
     
